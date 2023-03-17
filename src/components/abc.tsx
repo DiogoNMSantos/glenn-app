@@ -1,9 +1,13 @@
 import abcjs from "abcjs";
 import { useEffect } from "react";
 
-export function Abc() {
+export interface AbcProps {
+	abcNotation: string;
+}
+
+export function Abc({ abcNotation }: AbcProps) {
 	useEffect(() => {
-		abcjs.renderAbc("paper", "X:1\nK:D\nDD AA|BBA2|\n");
+		abcjs.renderAbc("paper", abcNotation);
 	});
 
 	return <div id="paper"></div>;
