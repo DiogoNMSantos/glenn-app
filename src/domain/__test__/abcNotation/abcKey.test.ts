@@ -1,32 +1,32 @@
-import { abcKey } from '../../abcNotation/abcKey';
-import Key from '../../Domain/Key';
+import { abcKey } from "../../abcNotation/abcKey";
+import Key from "../../Domain/Key";
 
-describe('abc Key should', () => {
-  test('convert C Major key to abc notation', () => {
-    const key = Key.CMajor;
-    const abc_key = new abcKey(key);
+describe("abc Key should", () => {
+	test("convert C Major key to abc notation", () => {
+		const key = Key.CMajor;
+		const abc_key = new abcKey(key);
 
-    expect(abc_key.toString()).toBe('K:C');
-  });
+		expect(abc_key.toString()).toBe("K:C");
+	});
 
-  test('convert A minor key to abc notation', () => {
-    const key = Key.AMinor;
-    const abc_key = new abcKey(key);
+	test("convert A minor key to abc notation", () => {
+		const key = Key.AMinor;
+		const abc_key = new abcKey(key);
 
-    expect(abc_key.toString()).toBe('K:Am');
-  });
+		expect(abc_key.toString()).toBe("K:Am");
+	});
 
-  test('convert Bb Major key to abc notation', () => {
-    const key = Key.BFlatMajor;
-    const abc_key = new abcKey(key);
+	test("convert Bb Major key to abc notation", () => {
+		const key = Key.BFlatMajor;
+		const abc_key = new abcKey(key);
 
-    expect(abc_key.toString()).toBe('K:Bb');
-  });
+		expect(abc_key.toString()).toBe("K:Bb");
+	});
 
-  test('convert C# minor key to abc notation', () => {
-    const key = Key.CSharpMinor;
-    const abc_key = new abcKey(key);
+	test("convert C# minor key to abc notation", () => {
+		const key = Key.CSharpMinor;
+		const abc_key = new abcKey(key);
 
-    expect(abc_key.toString()).toBe('K:C#m');
-  });
+		expect(abc_key.toString()).toBe("K:C#m");
+	});
 });

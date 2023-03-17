@@ -1,9 +1,9 @@
-import Key from 'src/Domain/Key';
+import Key from "src/Domain/Key";
 
 export class abcKey {
-  constructor(private readonly key: Key) {}
+	constructor(private readonly key: Key) {}
 
-  toString() {
-    return `K:${this.key.Abbreviation}`;
-  }
+	toString() {
+		return `K:${this.key.Abbreviation}`;
+	}
 }

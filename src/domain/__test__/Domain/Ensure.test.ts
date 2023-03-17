@@ -1,23 +1,23 @@
-import ensure from '../../Domain/Ensure';
+import ensure from "../../Domain/Ensure";
 
-describe('Ensure should', () => {
-  test('error when value is undefined', () => {
-    const data = [2];
+describe("Ensure should", () => {
+	test("error when value is undefined", () => {
+		const data = [2];
 
-    expect(() => ensure(data.find((value) => value == 1))).toThrow(
-      'This value was promised to be there'
-    );
-  });
+		expect(() => ensure(data.find((value) => value == 1))).toThrow(
+			"This value was promised to be there"
+		);
+	});
 
-  test('error when value is null', () => {
-    const data = [null];
+	test("error when value is null", () => {
+		const data = [null];
 
-    expect(() => ensure(data.find((value) => value))).toThrow();
-  });
+		expect(() => ensure(data.find((value) => value))).toThrow();
+	});
 
-  test('not to error when value is defined', () => {
-    const data = [1];
+	test("not to error when value is defined", () => {
+		const data = [1];
 
-    expect(ensure(data.find((value) => value == 1))).toBe(1);
-  });
+		expect(ensure(data.find((value) => value == 1))).toBe(1);
+	});
 });

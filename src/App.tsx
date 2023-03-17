@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { Abc } from "./components/abc";
 import {
@@ -13,6 +13,7 @@ import {
 } from "./domain";
 
 export function App() {
+	const [tune, setTune] = useState("");
 	useEffect(() => {
 		const timeSignature = new SimpleTimeSignature(4, Duration.Quarter, 60);
 		const measure = new Measure(timeSignature)
@@ -27,12 +28,13 @@ export function App() {
 			.addMeasure(measure)
 			.addMeasure(measure, Duration.Sixteenth)
 			.addMeasure(measure, Duration.Quarter);
+		setTune(tune.toString());
 	});
 
 	return (
 		<div className="App">
 			<h1>Gleen App</h1>
-			<Abc abcNotation={"X:1\nK:C\nDD AA|BBA2|\n"} />
+			<Abc abcNotation={tune} />
 		</div>
 	);
 }

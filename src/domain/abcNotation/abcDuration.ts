@@ -1,9 +1,9 @@
-import { Duration } from '../Domain/Duration';
+import { Duration } from "../Domain/Duration";
 
 export class abcDuration {
-  constructor(private readonly duration: Duration) {}
+	constructor(private readonly duration: Duration) {}
 
-  toString() {
-    return `L:${this.duration.toString()}`;
-  }
+	toString() {
+		return `L:${this.duration.toString()}`;
+	}
 }
