@@ -2,6 +2,7 @@ import { abcTune, Duration, Key, Measure, Note, Octave, Pitch, SimpleTimeSignatu
 import { useEffect, useState } from "react";
 
 import { Abc } from "./components/abc";
+import { Piano } from "./components/piano";
 
 export function App() {
 	const [song, setSong] = useState("");
@@ -27,6 +28,7 @@ export function App() {
 		<div className="App">
 			<h1>Gleen App</h1>
 			<Abc abcNotation={song} />
+			<Piano></Piano>
 		</div>
 	);
 }
