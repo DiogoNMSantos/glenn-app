@@ -2,12 +2,7 @@
 	box-sizing: border-box;
 }
 
-div {
-	margin: 0;
-	background: #222;
-}
-
-li {
+.key {
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -15,7 +10,7 @@ li {
 	float: left;
 }
 
-ul .white {
+.whiteKey {
 	height: 16em;
 	width: 3em;
 	z-index: 1;
@@ -29,7 +24,7 @@ ul .white {
 	padding-top: 14em;
 }
 
-ul .white:active {
+.whiteKey:active {
 	border-top: 1px solid #777;
 	border-left: 1px solid #999;
 	border-bottom: 1px solid #999;
@@ -38,7 +33,7 @@ ul .white:active {
 	background: linear-gradient(to bottom, #fff 0%, #e9e9e9 100%);
 }
 
-.black {
+.blackKey {
 	height: 8em;
 	width: 2em;
 	margin: 0 0 0 -1em;
@@ -50,12 +45,12 @@ ul .white:active {
 	background: linear-gradient(45deg, #222 0%, #555 100%);
 }
 
-.black:active {
+.blackKey:active {
 	box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 0 -2px 2px 3px rgba(0, 0, 0, 0.6) inset,
 		0 1px 2px rgba(0, 0, 0, 0.5);
 	background: linear-gradient(to right, #444 0%, #222 100%);
 }
 
-.alt {
+.altKey {
 	margin: 0 0 0 -1em;
 }

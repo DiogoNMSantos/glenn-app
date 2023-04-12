@@ -7,8 +7,6 @@ export interface AbcProps {
 
 export function Abc({ abcNotation }: AbcProps) {
 	useEffect(() => {
-		// eslint-disable-next-line
-		console.log(abcNotation);
 		abcjs.renderAbc("paper", abcNotation);
 	});
 
