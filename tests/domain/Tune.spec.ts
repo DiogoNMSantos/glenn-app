@@ -1,8 +1,8 @@
 import { Duration, Note, Octave, Pitch } from "glenn";
 
-import { MusicalNote } from "../../src/domain/tune";
+import { MusicalNote, Tune } from "../../src/domain/tune";
 
-describe("create note from", () => {
+describe("MusicalNote creates note from", () => {
 	test("pitch 0 and octave 4", () => {
 		const note = new MusicalNote();
 
@@ -44,5 +44,57 @@ describe("create note from", () => {
 		expect(new MusicalNote().from(0, octaveNumber)).toStrictEqual(
 			new Note(Pitch.C, Duration.Quarter, octave)
 		);
+	});
+});
+
+describe("Tune", () => {
+	test("adds a C note to the tune", () => {
+		const tune = new Tune();
+
+		tune.addNote(new MusicalNote().from(0, 3));
+
+		expect(tune.toString()).toContain("|C,|");
+	});
+
+	test("adds a C and a G notes to the tune", () => {
+		const tune = new Tune();
+
+		tune.addNote(new MusicalNote().from(0, 3));
+		tune.addNote(new MusicalNote().from(7, 3));
+
+		expect(tune.toString()).toContain("|C,G,|");
+	});
+
+	test("adds a C a G and a E notes to the tune", () => {
+		const tune = new Tune();
+
+		tune.addNote(new MusicalNote().from(0, 3));
+		tune.addNote(new MusicalNote().from(7, 3));
+		tune.addNote(new MusicalNote().from(4, 3));
+
+		expect(tune.toString()).toContain("|C,G,E,|");
+	});
+
+	test("adds a C a G a E and a F notes to the tune", () => {
+		const tune = new Tune();
+
+		tune.addNote(new MusicalNote().from(0, 3));
+		tune.addNote(new MusicalNote().from(7, 3));
+		tune.addNote(new MusicalNote().from(4, 3));
+		tune.addNote(new MusicalNote().from(5, 3));
+
+		expect(tune.toString()).toContain("|C,G,E,F,|");
+	});
+
+	test("adds a C a G a E a F and a D notes to the tune", () => {
+		const tune = new Tune();
+
+		tune.addNote(new MusicalNote().from(0, 3));
+		tune.addNote(new MusicalNote().from(7, 3));
+		tune.addNote(new MusicalNote().from(4, 3));
+		tune.addNote(new MusicalNote().from(5, 3));
+		tune.addNote(new MusicalNote().from(2, 3));
+
+		expect(tune.toString()).toContain("|C,G,E,F,|D,|");
 	});
 });

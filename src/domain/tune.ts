@@ -1,23 +1,29 @@
+/* eslint-disable new-cap */
 import { abcTune, Duration, Key, Measure, Note, Octave, Pitch, SimpleTimeSignature } from "glenn";
 
 export class Tune {
-	static defaultTheme(): string {
-		const timeSignature = new SimpleTimeSignature(4, Duration.Quarter);
-		const measure = new Measure(timeSignature)
-			.add(new Note(Pitch.C, Duration.Quarter, Octave.C4))
-			.add(new Note(Pitch.E, Duration.Quarter, Octave.C4))
-			.add(new Note(Pitch.G, Duration.Eighth, Octave.C4))
-			.add(new Note(Pitch.A, Duration.Eighth, Octave.C4))
-			.add(new Note(Pitch.B, Duration.Eighth, Octave.C4))
-			.add(new Note(Pitch.C, Duration.Eighth, Octave.C5));
+	private readonly timeSignature = new SimpleTimeSignature(4, Duration.Quarter);
+	private readonly key = Key.CMajor;
+	private readonly defaultDuration: Duration = Duration.Quarter;
+	private readonly tune = new abcTune(Key.CMajor, this.timeSignature, this.defaultDuration);
+	private currentMeasure: Measure = new Measure(this.timeSignature);
 
-		// eslint-disable-next-line new-cap
-		const tune = new abcTune(Key.CMajor, timeSignature, Duration.Eighth)
-			.addMeasure(measure)
-			.addMeasure(measure, Duration.Sixteenth)
-			.addMeasure(measure, Duration.Quarter);
+	constructor() {
+		this.tune.addMeasure(this.currentMeasure);
+	}
 
-		return tune.toString();
+	addNote(note: Note): void {
+		try {
+			this.currentMeasure.add(note);
+		} catch (e) {
+			this.currentMeasure = new Measure(this.timeSignature);
+			this.tune.addMeasure(this.currentMeasure);
+			this.currentMeasure.add(note);
+		}
+	}
+
+	toString(): string {
+		return this.tune.toString();
 	}
 }
 
