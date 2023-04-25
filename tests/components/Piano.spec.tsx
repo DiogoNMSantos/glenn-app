@@ -10,6 +10,7 @@ describe("Piano", () => {
 
 		expect(pianoKeys.length).toBe(88);
 	});
+
 	test("maps A0 key to A0 note", () => {
 		render(<Piano keyPressedCallBack={jest.fn} />);
 		const pianoKeys = screen.getAllByRole("button");
