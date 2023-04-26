@@ -28,8 +28,25 @@ export class Tune {
 }
 
 export class MusicalNote {
-	from(pitch: number, octave: number): Note {
-		return new Note(this.pitchFrom(pitch), Duration.Quarter, this.octaveFrom(octave));
+	from(pitch: number, octave: number, duration: number): Note {
+		return new Note(this.pitchFrom(pitch), this.durationForm(duration), this.octaveFrom(octave));
+	}
+
+	private durationForm(durationNumber: number): Duration {
+		const durationNumberToDuration: Map<number, Duration> = new Map<number, Duration>([
+			[0, Duration.Double],
+			[1, Duration.Whole],
+			[2, Duration.Half],
+			[3, Duration.Quarter],
+			[4, Duration.Eighth],
+			[5, Duration.Sixteenth],
+			[6, Duration.ThirtySecond],
+			[7, Duration.SixtyFourth],
+		]);
+
+		const duration = durationNumberToDuration.get(durationNumber);
+
+		return duration ? duration : Duration.Whole;
 	}
 
 	private pitchFrom(pitchNumber: number): Pitch {
