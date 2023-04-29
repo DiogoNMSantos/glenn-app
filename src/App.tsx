@@ -15,8 +15,10 @@ export function App() {
 		<div className="App">
 			<div className="app"></div>
 			<h1>Gleen App</h1>
-			<Abc abcNotation={notation} />
 			<section className={styles.container}>
+				<div>
+					<Abc abcNotation={notation} />
+				</div>
 				<div>
 					<Piano
 						keyPressedCallBack={(pitch: PitchValue, octave: OctaveValue) => {
