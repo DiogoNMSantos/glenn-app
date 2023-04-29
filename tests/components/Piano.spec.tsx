@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
 import { Piano } from "../../src/components/piano";
+import { PianoHigh } from "../../src/components/pianoHight";
 
 describe("Piano", () => {
 	test("has 88 keys", () => {
@@ -21,7 +22,7 @@ describe("Piano", () => {
 
 	test("notifies when C4 is pressed", () => {
 		const keyPressed = jest.fn();
-		render(<Piano keyPressedCallBack={keyPressed} />);
+		render(<PianoHigh keyPressedCallBack={keyPressed} />);
 
 		const pianoKeys = screen.getAllByRole("button");
 

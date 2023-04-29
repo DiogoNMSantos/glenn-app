@@ -2,8 +2,35 @@ import "./piano.scss";
 
 import { PianoKey } from "./pianoKey";
 
+export enum PitchValue {
+	C,
+	CSharp,
+	D,
+	DSharp,
+	E,
+	F,
+	FSharp,
+	G,
+	GSharp,
+	A,
+	ASharp,
+	B,
+}
+
+export enum OctaveValue {
+	C0,
+	C1,
+	C2,
+	C3,
+	C4,
+	C5,
+	C6,
+	C7,
+	C8,
+}
+
 export interface PianoProps {
-	keyPressedCallBack: (pitch: number, octave: number) => void;
+	keyPressedCallBack: (pitch: PitchValue, octave: OctaveValue) => void;
 }
 
 export function Piano({ keyPressedCallBack }: PianoProps) {
@@ -12,554 +39,554 @@ export function Piano({ keyPressedCallBack }: PianoProps) {
 			<ul className="set" role="separator">
 				<PianoKey
 					keyStyle="key whiteKey altKey"
-					pitch={9}
-					octave={0}
+					pitch={PitchValue.A}
+					octave={OctaveValue.C0}
 					keyPressedCallBack={keyPressedCallBack}
 					pitchName={"A0"}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey"
-					pitch={10}
-					octave={0}
+					pitch={PitchValue.ASharp}
+					octave={OctaveValue.C0}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey"
-					pitch={11}
-					octave={0}
+					pitch={PitchValue.B}
+					octave={OctaveValue.C0}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 			</ul>
 			<ul className="set" role="separator">
 				<PianoKey
 					keyStyle="key whiteKey"
-					pitch={0}
-					octave={1}
+					pitch={PitchValue.C}
+					octave={OctaveValue.C1}
 					keyPressedCallBack={keyPressedCallBack}
 					pitchName={"C1"}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey"
-					pitch={1}
-					octave={1}
+					pitch={PitchValue.CSharp}
+					octave={OctaveValue.C1}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey"
-					pitch={2}
-					octave={1}
+					pitch={PitchValue.D}
+					octave={OctaveValue.C1}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey"
-					pitch={3}
-					octave={1}
+					pitch={PitchValue.DSharp}
+					octave={OctaveValue.C1}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey"
-					pitch={4}
-					octave={1}
+					pitch={PitchValue.E}
+					octave={OctaveValue.C1}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey"
-					pitch={5}
-					octave={1}
+					pitch={PitchValue.F}
+					octave={OctaveValue.C1}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={6}
-					octave={1}
+					pitch={PitchValue.FSharp}
+					octave={OctaveValue.C1}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={7}
-					octave={1}
+					pitch={PitchValue.G}
+					octave={OctaveValue.C1}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={8}
-					octave={1}
+					pitch={PitchValue.GSharp}
+					octave={OctaveValue.C1}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={9}
-					octave={1}
+					pitch={PitchValue.A}
+					octave={OctaveValue.C1}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={10}
-					octave={1}
+					pitch={PitchValue.ASharp}
+					octave={OctaveValue.C1}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={11}
-					octave={1}
+					pitch={PitchValue.B}
+					octave={OctaveValue.C1}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 			</ul>
 			<ul className="set" role="separator">
 				<PianoKey
 					keyStyle="key whiteKey"
-					pitch={0}
-					octave={2}
+					pitch={PitchValue.C}
+					octave={OctaveValue.C2}
 					keyPressedCallBack={keyPressedCallBack}
 					pitchName={"C2"}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={1}
-					octave={2}
+					pitch={PitchValue.CSharp}
+					octave={OctaveValue.C2}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={2}
-					octave={2}
+					pitch={PitchValue.D}
+					octave={OctaveValue.C2}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={3}
-					octave={2}
+					pitch={PitchValue.DSharp}
+					octave={OctaveValue.C2}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={4}
-					octave={2}
+					pitch={PitchValue.E}
+					octave={OctaveValue.C2}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey "
-					pitch={5}
-					octave={2}
+					pitch={PitchValue.F}
+					octave={OctaveValue.C2}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={6}
-					octave={2}
+					pitch={PitchValue.FSharp}
+					octave={OctaveValue.C2}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={7}
-					octave={2}
+					pitch={PitchValue.G}
+					octave={OctaveValue.C2}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={8}
-					octave={2}
+					pitch={PitchValue.GSharp}
+					octave={OctaveValue.C2}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={9}
-					octave={2}
+					pitch={PitchValue.A}
+					octave={OctaveValue.C2}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={10}
-					octave={2}
+					pitch={PitchValue.ASharp}
+					octave={OctaveValue.C2}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={11}
-					octave={2}
+					pitch={PitchValue.B}
+					octave={OctaveValue.C2}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 			</ul>
 			<ul className="set" role="separator">
 				<PianoKey
 					keyStyle="key whiteKey"
-					pitch={0}
-					octave={3}
+					pitch={PitchValue.C}
+					octave={OctaveValue.C3}
 					keyPressedCallBack={keyPressedCallBack}
 					pitchName={"C3"}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={1}
-					octave={3}
+					pitch={PitchValue.CSharp}
+					octave={OctaveValue.C3}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={2}
-					octave={3}
+					pitch={PitchValue.D}
+					octave={OctaveValue.C3}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={3}
-					octave={3}
+					pitch={PitchValue.DSharp}
+					octave={OctaveValue.C3}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={4}
-					octave={3}
+					pitch={PitchValue.E}
+					octave={OctaveValue.C3}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey "
-					pitch={5}
-					octave={3}
+					pitch={PitchValue.F}
+					octave={OctaveValue.C3}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={6}
-					octave={3}
+					pitch={PitchValue.FSharp}
+					octave={OctaveValue.C3}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={7}
-					octave={3}
+					pitch={PitchValue.G}
+					octave={OctaveValue.C3}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={8}
-					octave={3}
+					pitch={PitchValue.GSharp}
+					octave={OctaveValue.C3}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={9}
-					octave={3}
+					pitch={PitchValue.A}
+					octave={OctaveValue.C3}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={10}
-					octave={3}
+					pitch={PitchValue.ASharp}
+					octave={OctaveValue.C3}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={11}
-					octave={3}
+					pitch={PitchValue.B}
+					octave={OctaveValue.C3}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 			</ul>
 			<ul className="set" role="separator">
 				<PianoKey
 					keyStyle="key whiteKey"
-					pitch={0}
-					octave={4}
+					pitch={PitchValue.C}
+					octave={OctaveValue.C4}
 					keyPressedCallBack={keyPressedCallBack}
 					pitchName={"C4"}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={1}
-					octave={4}
+					pitch={PitchValue.CSharp}
+					octave={OctaveValue.C4}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={2}
-					octave={4}
+					pitch={PitchValue.D}
+					octave={OctaveValue.C4}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={3}
-					octave={4}
+					pitch={PitchValue.DSharp}
+					octave={OctaveValue.C4}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={4}
-					octave={4}
+					pitch={PitchValue.E}
+					octave={OctaveValue.C4}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey "
-					pitch={5}
-					octave={4}
+					pitch={PitchValue.F}
+					octave={OctaveValue.C4}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={6}
+					pitch={PitchValue.FSharp}
+					octave={OctaveValue.C4}
+					keyPressedCallBack={keyPressedCallBack}
+				></PianoKey>
+				<PianoKey
+					keyStyle="key whiteKey altKey "
+					pitch={PitchValue.G}
+					octave={OctaveValue.C4}
+					keyPressedCallBack={keyPressedCallBack}
+				></PianoKey>
+				<PianoKey
+					keyStyle="key blackKey "
+					pitch={PitchValue.GSharp}
 					octave={4}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={7}
-					octave={4}
+					pitch={PitchValue.A}
+					octave={OctaveValue.C4}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={8}
-					octave={4}
+					pitch={PitchValue.ASharp}
+					octave={OctaveValue.C4}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={9}
-					octave={4}
-					keyPressedCallBack={keyPressedCallBack}
-				></PianoKey>
-				<PianoKey
-					keyStyle="key blackKey "
-					pitch={10}
-					octave={4}
-					keyPressedCallBack={keyPressedCallBack}
-				></PianoKey>
-				<PianoKey
-					keyStyle="key whiteKey altKey "
-					pitch={11}
-					octave={4}
+					pitch={PitchValue.B}
+					octave={OctaveValue.C4}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 			</ul>
 			<ul className="set" role="separator">
 				<PianoKey
 					keyStyle="key whiteKey"
-					pitch={0}
-					octave={5}
+					pitch={PitchValue.C}
+					octave={OctaveValue.C5}
 					keyPressedCallBack={keyPressedCallBack}
 					pitchName={"C5"}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={1}
-					octave={5}
+					pitch={PitchValue.CSharp}
+					octave={OctaveValue.C5}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={2}
-					octave={5}
+					pitch={PitchValue.D}
+					octave={OctaveValue.C5}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={3}
-					octave={5}
+					pitch={PitchValue.DSharp}
+					octave={OctaveValue.C5}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={4}
-					octave={5}
+					pitch={PitchValue.E}
+					octave={OctaveValue.C5}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey "
-					pitch={5}
-					octave={5}
+					pitch={PitchValue.F}
+					octave={OctaveValue.C5}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={6}
-					octave={5}
+					pitch={PitchValue.FSharp}
+					octave={OctaveValue.C5}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={7}
-					octave={5}
+					pitch={PitchValue.G}
+					octave={OctaveValue.C5}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={8}
-					octave={5}
+					pitch={PitchValue.GSharp}
+					octave={OctaveValue.C5}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={9}
-					octave={5}
+					pitch={PitchValue.A}
+					octave={OctaveValue.C5}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={10}
-					octave={5}
+					pitch={PitchValue.ASharp}
+					octave={OctaveValue.C5}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={11}
-					octave={5}
+					pitch={PitchValue.B}
+					octave={OctaveValue.C5}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 			</ul>
 			<ul className="set" role="separator">
 				<PianoKey
 					keyStyle="key whiteKey"
-					pitch={0}
-					octave={6}
+					pitch={PitchValue.C}
+					octave={OctaveValue.C6}
 					keyPressedCallBack={keyPressedCallBack}
 					pitchName={"C6"}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={1}
-					octave={6}
+					pitch={PitchValue.CSharp}
+					octave={OctaveValue.C6}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={2}
-					octave={6}
+					pitch={PitchValue.D}
+					octave={OctaveValue.C6}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={3}
-					octave={6}
+					pitch={PitchValue.DSharp}
+					octave={OctaveValue.C6}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={4}
-					octave={6}
+					pitch={PitchValue.E}
+					octave={OctaveValue.C6}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey "
-					pitch={5}
-					octave={6}
+					pitch={PitchValue.F}
+					octave={OctaveValue.C6}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={6}
-					octave={6}
+					pitch={PitchValue.FSharp}
+					octave={OctaveValue.C6}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={7}
-					octave={6}
+					pitch={PitchValue.G}
+					octave={OctaveValue.C6}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={8}
-					octave={6}
+					pitch={PitchValue.GSharp}
+					octave={OctaveValue.C6}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={9}
-					octave={6}
+					pitch={PitchValue.A}
+					octave={OctaveValue.C6}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={10}
-					octave={6}
+					pitch={PitchValue.ASharp}
+					octave={OctaveValue.C6}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={11}
-					octave={6}
+					pitch={PitchValue.B}
+					octave={OctaveValue.C6}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 			</ul>
 			<ul className="set" role="separator">
 				<PianoKey
 					keyStyle="key whiteKey"
-					pitch={0}
-					octave={7}
+					pitch={PitchValue.C}
+					octave={OctaveValue.C7}
 					keyPressedCallBack={keyPressedCallBack}
 					pitchName={"C7"}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={1}
-					octave={7}
+					pitch={PitchValue.CSharp}
+					octave={OctaveValue.C7}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={2}
-					octave={7}
+					pitch={PitchValue.D}
+					octave={OctaveValue.C7}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={3}
-					octave={7}
+					pitch={PitchValue.DSharp}
+					octave={OctaveValue.C7}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={4}
-					octave={7}
+					pitch={PitchValue.E}
+					octave={OctaveValue.C7}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey "
-					pitch={5}
-					octave={7}
+					pitch={PitchValue.F}
+					octave={OctaveValue.C7}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={6}
-					octave={7}
+					pitch={PitchValue.FSharp}
+					octave={OctaveValue.C7}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={7}
-					octave={7}
+					pitch={PitchValue.G}
+					octave={OctaveValue.C7}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={8}
-					octave={7}
+					pitch={PitchValue.GSharp}
+					octave={OctaveValue.C7}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={9}
-					octave={7}
+					pitch={PitchValue.A}
+					octave={OctaveValue.C7}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key blackKey "
-					pitch={10}
-					octave={7}
+					pitch={PitchValue.ASharp}
+					octave={OctaveValue.C7}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 				<PianoKey
 					keyStyle="key whiteKey altKey "
-					pitch={11}
-					octave={7}
+					pitch={PitchValue.B}
+					octave={OctaveValue.C7}
 					keyPressedCallBack={keyPressedCallBack}
 				></PianoKey>
 			</ul>
 			<ul className="set" role="separator">
 				<PianoKey
 					keyStyle="key whiteKey"
-					pitch={0}
-					octave={8}
+					pitch={PitchValue.C}
+					octave={OctaveValue.C8}
 					keyPressedCallBack={keyPressedCallBack}
 					pitchName={"C8"}
 				></PianoKey>

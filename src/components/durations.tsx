@@ -1,31 +1,77 @@
+import "./durations.scss";
+
+export enum DurationValue {
+	Double,
+	Whole,
+	Half,
+	Quarter,
+	Eighth,
+	Sixteenth,
+	ThirtySecond,
+	SixtyFourth,
+}
+
 export interface DurationProps {
-	durationSelectedCallBack: (duration: number) => void;
+	durationSelectedCallBack: (duration: DurationValue) => void;
 }
 
 export function PitchDurationSelector({ durationSelectedCallBack }: DurationProps) {
 	return (
 		<div>
-			<button name="Dot" />
-			<button name="Rest" />
-			<PitchDurationButton duration={0} durationSelectedCallBack={durationSelectedCallBack} />
-			<PitchDurationButton duration={1} durationSelectedCallBack={durationSelectedCallBack} />
-			<PitchDurationButton duration={2} durationSelectedCallBack={durationSelectedCallBack} />
-			<PitchDurationButton duration={3} durationSelectedCallBack={durationSelectedCallBack} />
-			<PitchDurationButton duration={4} durationSelectedCallBack={durationSelectedCallBack} />
-			<PitchDurationButton duration={5} durationSelectedCallBack={durationSelectedCallBack} />
-			<PitchDurationButton duration={6} durationSelectedCallBack={durationSelectedCallBack} />
-			<PitchDurationButton duration={7} durationSelectedCallBack={durationSelectedCallBack} />
+			<div className="moto-music"></div>
+			<PitchDurationButton
+				duration={DurationValue.Double}
+				name={"𝅜"}
+				durationSelectedCallBack={durationSelectedCallBack}
+			/>
+			<PitchDurationButton
+				duration={DurationValue.Whole}
+				name={"𝅝"}
+				durationSelectedCallBack={durationSelectedCallBack}
+			/>
+			<PitchDurationButton
+				duration={DurationValue.Half}
+				name={"𝅗𝅥"}
+				durationSelectedCallBack={durationSelectedCallBack}
+			/>
+			<PitchDurationButton
+				duration={DurationValue.Quarter}
+				name={"𝅘𝅥"}
+				durationSelectedCallBack={durationSelectedCallBack}
+			/>
+			<PitchDurationButton
+				duration={DurationValue.Eighth}
+				name={"𝅘𝅥𝅮"}
+				durationSelectedCallBack={durationSelectedCallBack}
+			/>
+			<PitchDurationButton
+				duration={DurationValue.Sixteenth}
+				name={"𝅘𝅥𝅯"}
+				durationSelectedCallBack={durationSelectedCallBack}
+			/>
+			<PitchDurationButton
+				duration={DurationValue.ThirtySecond}
+				name={"𝅘𝅥𝅰"}
+				durationSelectedCallBack={durationSelectedCallBack}
+			/>
+			<PitchDurationButton
+				duration={DurationValue.SixtyFourth}
+				name={"𝅘𝅥𝅱"}
+				durationSelectedCallBack={durationSelectedCallBack}
+			/>
 		</div>
 	);
 }
 
 export interface PitchDurationButtonProps {
-	duration: number;
-	durationSelectedCallBack: (duration: number) => void;
+	duration: DurationValue;
+	name: string;
+	durationSelectedCallBack: (duration: DurationValue) => void;
 }
 
 export function PitchDurationButton({
 	duration,
+	name,
 	durationSelectedCallBack,
 }: PitchDurationButtonProps) {
 	const handleClick = () => {
@@ -34,7 +80,91 @@ export function PitchDurationButton({
 
 	return (
 		<div>
-			<button onClick={handleClick} /> Breve
+			<button className="duration" onClick={handleClick}>
+				{name}
+			</button>
+		</div>
+	);
+}
+
+export interface RestDurationProps {
+	restDurationSelectedCallBack: (duration: DurationValue) => void;
+}
+
+export function RestDurationSelector({ restDurationSelectedCallBack }: RestDurationProps) {
+	return (
+		<div>
+			<RestDurationButton
+				duration={DurationValue.Double}
+				name={"𝄺"}
+				restDurationSelectedCallBack={restDurationSelectedCallBack}
+			/>
+
+			<RestDurationButton
+				duration={DurationValue.Whole}
+				name={"𝄻"}
+				restDurationSelectedCallBack={restDurationSelectedCallBack}
+			/>
+
+			<RestDurationButton
+				duration={DurationValue.Half}
+				name={"𝄼"}
+				restDurationSelectedCallBack={restDurationSelectedCallBack}
+			/>
+
+			<RestDurationButton
+				duration={DurationValue.Quarter}
+				name={"𝄽"}
+				restDurationSelectedCallBack={restDurationSelectedCallBack}
+			/>
+
+			<RestDurationButton
+				duration={DurationValue.Eighth}
+				name={"𝄾"}
+				restDurationSelectedCallBack={restDurationSelectedCallBack}
+			/>
+
+			<RestDurationButton
+				duration={DurationValue.Sixteenth}
+				name={"𝄿"}
+				restDurationSelectedCallBack={restDurationSelectedCallBack}
+			/>
+
+			<RestDurationButton
+				duration={DurationValue.ThirtySecond}
+				name={"𝅀"}
+				restDurationSelectedCallBack={restDurationSelectedCallBack}
+			/>
+
+			<RestDurationButton
+				duration={DurationValue.SixtyFourth}
+				name={"𝅁"}
+				restDurationSelectedCallBack={restDurationSelectedCallBack}
+			/>
+		</div>
+	);
+}
+
+export interface RestDurationButtonProps {
+	duration: DurationValue;
+	name: string;
+	restDurationSelectedCallBack: (duration: DurationValue) => void;
+}
+
+export function RestDurationButton({
+	duration,
+	name,
+	restDurationSelectedCallBack,
+}: RestDurationButtonProps) {
+	const restHandleClick = () => {
+		restDurationSelectedCallBack(duration);
+	};
+
+	return (
+		<div>
+			<button className="durationContainer" onClick={restHandleClick}>
+				{name}
+			</button>
 		</div>
 	);
 }
