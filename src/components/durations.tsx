@@ -17,8 +17,7 @@ export interface DurationProps {
 
 export function PitchDurationSelector({ durationSelectedCallBack }: DurationProps) {
 	return (
-		<div>
-			<div className="moto-music"></div>
+		<div className="container">
 			<PitchDurationButton
 				duration={DurationValue.Double}
 				name={"𝅜"}
@@ -79,11 +78,9 @@ export function PitchDurationButton({
 	};
 
 	return (
-		<div>
-			<button className="duration" onClick={handleClick}>
-				{name}
-			</button>
-		</div>
+		<button className="duration" onClick={handleClick}>
+			{name}
+		</button>
 	);
 }
 
@@ -93,7 +90,7 @@ export interface RestDurationProps {
 
 export function RestDurationSelector({ restDurationSelectedCallBack }: RestDurationProps) {
 	return (
-		<div>
+		<div className="container">
 			<RestDurationButton
 				duration={DurationValue.Double}
 				name={"𝄺"}
@@ -161,10 +158,8 @@ export function RestDurationButton({
 	};
 
 	return (
-		<div>
-			<button className="durationContainer" onClick={restHandleClick}>
-				{name}
-			</button>
-		</div>
+		<button className="duration" onClick={restHandleClick}>
+			{name}
+		</button>
 	);
 }

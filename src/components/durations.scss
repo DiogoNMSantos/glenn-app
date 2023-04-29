@@ -1,31 +1,16 @@
-* {
-	box-sizing: border-box;
+.container{
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: repeat(8, auto);
 }
 
 .duration {
-	border: 0.1rem solid white;
-	position: relative;
-	min-width: 3rem;
-	min-height: 3rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	width: 10rem;
+
 	font-size: 2rem;
-
 }
 
-.durationContainer {
-	border: 0.1rem solid white;
-	min-width: 1rem;
-	min-height: 1rem;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	font-size: 2.5rem;
-	cursor: pointer;
-}
+
 
 
 
