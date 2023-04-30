@@ -1,7 +1,7 @@
 {
 	"name": "glenn-app",
 	"version": "0.1.0",
-	"homepage": "http://DiogoNMSantos.github.io/gleen-app",
+	"homepage": "https://DiogoNMSantos.github.io/gleen-app",
 	"private": false,
 	"dependencies": {
 		"abcjs": "^6.1.9",
