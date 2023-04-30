@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-import { abcTune, Duration, Key, Measure, Note, Octave, Pitch, SimpleTimeSignature } from "glenn";
+import { abcTune, Duration, Key, Note, Octave, Pitch, SimpleTimeSignature, Song } from "glenn";
 
 import { DurationValue } from "../components/durations";
 import { OctaveValue, PitchValue } from "../components/piano";
@@ -8,25 +8,16 @@ export class Tune {
 	private readonly timeSignature = new SimpleTimeSignature(4, Duration.Quarter);
 	private readonly key = Key.CMajor;
 	private readonly defaultDuration: Duration = Duration.Quarter;
-	private readonly tune = new abcTune(Key.CMajor, this.timeSignature, this.defaultDuration);
-	private currentMeasure: Measure = new Measure(this.timeSignature);
-
-	constructor() {
-		this.tune.addMeasure(this.currentMeasure);
-	}
+	private readonly song = new Song(this.timeSignature, this.key);
 
 	addNote(note: Note): void {
-		try {
-			this.currentMeasure.add(note);
-		} catch (e) {
-			this.currentMeasure = new Measure(this.timeSignature);
-			this.tune.addMeasure(this.currentMeasure);
-			this.currentMeasure.add(note);
-		}
+		this.song.addNote(note);
 	}
 
 	toString(): string {
-		return this.tune.toString();
+		const tune = new abcTune(this.song, this.defaultDuration);
+
+		return tune.toString();
 	}
 }
 

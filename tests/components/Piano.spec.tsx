@@ -22,7 +22,7 @@ describe("Piano", () => {
 
 	test("notifies when C4 is pressed", () => {
 		const keyPressed = jest.fn();
-		render(<PianoHigh keyPressedCallBack={keyPressed} />);
+		render(<Piano keyPressedCallBack={keyPressed} />);
 
 		const pianoKeys = screen.getAllByRole("button");
 

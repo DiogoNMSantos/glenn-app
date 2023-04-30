@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
-import { PitchDurationButton, RestDurationButton } from "../../src/components/durations";
+import { PitchDurationButton } from "../../src/components/durations";
+import { RestDurationButton} from "../../src/components/rests";
 
 describe("Duration", () => {
 	test("Double", () => {
