@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/gleen-app/static/css/main.48bd468b.css",
-    "main.js": "/gleen-app/static/js/main.ed4d1b79.js",
+    "main.js": "/gleen-app/static/js/main.e7147c53.js",
     "index.html": "/gleen-app/index.html",
     "main.48bd468b.css.map": "/gleen-app/static/css/main.48bd468b.css.map",
-    "main.ed4d1b79.js.map": "/gleen-app/static/js/main.ed4d1b79.js.map"
+    "main.e7147c53.js.map": "/gleen-app/static/js/main.e7147c53.js.map"
   },
   "entrypoints": [
     "static/css/main.48bd468b.css",
-    "static/js/main.ed4d1b79.js"
+    "static/js/main.e7147c53.js"
   ]
 }
