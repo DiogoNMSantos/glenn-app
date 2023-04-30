@@ -35,7 +35,7 @@ export interface PianoProps {
 
 export function Piano({ keyPressedCallBack }: PianoProps) {
 	return (
-		<div>
+		<div className="piano">
 			<ul className="set" role="separator">
 				<PianoKey
 					keyStyle="key whiteKey altKey"

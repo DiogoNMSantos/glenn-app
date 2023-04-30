@@ -2,13 +2,18 @@
 	display: grid;
 	grid-template-rows: 1fr;
 	grid-template-columns: repeat(8, auto);
+	margin-left: 1.5rem;
 }
 
 .duration {
-	width: 10rem;
-
+	width: 9rem;
 	font-size: 2rem;
 }
+
+.duration:focus {
+	background-color: bisque;
+}
+
 
 
 

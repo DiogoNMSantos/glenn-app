@@ -2,8 +2,9 @@ import { useMemo, useState } from "react";
 
 import styles from "./App.module.scss";
 import { Abc } from "./components/abc";
-import { DurationValue, PitchDurationSelector, RestDurationSelector } from "./components/durations";
+import { DurationValue, PitchDurationSelector } from "./components/durations";
 import { OctaveValue, Piano, PitchValue } from "./components/piano";
+import { RestDurationSelector } from "./components/rests";
 import { MusicalNote, Tune } from "./domain/tune";
 
 export function App() {

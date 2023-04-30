@@ -1,10 +1,12 @@
+.piano{
+  margin-left: 0.1rem;
+}
+
 .key {
   box-sizing: border-box;
   display: grid;
   position: inherit;
-  float:left;
-  margin: 0;
-  padding: 0;
+  float: left;
   list-style: none;
 }
 
