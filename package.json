@@ -17,7 +17,9 @@
 		"cy:open": "cypress open",
 		"cy:run": "cypress run",
 		"lint": "eslint --ignore-path .gitignore . && stylelint **/*.scss",
-		"lint:fix": "eslint --fix --ignore-path .gitignore . && stylelint --fix **/*.scss"
+		"lint:fix": "eslint --fix --ignore-path .gitignore . && stylelint --fix **/*.scss",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
 	},
 	"eslintConfig": {
 		"extends": [
