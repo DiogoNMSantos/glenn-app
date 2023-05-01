@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
 import { Piano } from "../../src/components/piano";
-import { PianoHigh } from "../../src/components/pianoHight";
 
 describe("Piano", () => {
 	test("has 88 keys", () => {

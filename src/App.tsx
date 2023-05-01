@@ -48,7 +48,7 @@ export function App() {
 					/>
 				</div>
 				<div className="item">
-					<h3>{status}</h3>
+					<h3 role="status">{status}</h3>
 				</div>
 			</section>
 		</div>
