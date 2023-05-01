@@ -11,6 +11,7 @@ export function App() {
 	const tune = useMemo<Tune>(() => new Tune(), []);
 	const [durationNumber, setDurationNumber] = useState(DurationValue.Quarter);
 	const [notation, setNotation] = useState("");
+	const [status, setStatus] = useState("");
 
 	return (
 		<div className="App">
@@ -20,27 +21,34 @@ export function App() {
 				<div>
 					<Abc abcNotation={notation} />
 				</div>
-				<div>
+				<div className="item">
 					<Piano
 						keyPressedCallBack={(pitch: PitchValue, octave: OctaveValue) => {
-							tune.addNote(new MusicalNote().from(pitch, octave, durationNumber));
-							setNotation(tune.toString());
+							try {
+								tune.addNote(new MusicalNote().from(pitch, octave, durationNumber));
+								setNotation(tune.toString());
+							} catch (error) {
+								setStatus("Double duration exceeds measure size");
+							}
 						}}
 					></Piano>
 				</div>
-				<div>
+				<div className="item">
 					<PitchDurationSelector
 						durationSelectedCallBack={(duration: DurationValue) => {
 							setDurationNumber(duration);
 						}}
 					/>
 				</div>
-				<div>
+				<div className="item">
 					<RestDurationSelector
 						restDurationSelectedCallBack={(duration: DurationValue) => {
 							setDurationNumber(duration);
 						}}
 					/>
+				</div>
+				<div className="item">
+					<h3>{status}</h3>
 				</div>
 			</section>
 		</div>
