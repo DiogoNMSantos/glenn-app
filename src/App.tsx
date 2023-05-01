@@ -18,7 +18,7 @@ export function App() {
 			<div className="app"></div>
 			<h1>Gleen App</h1>
 			<section className={styles.container}>
-				<div>
+				<div style={{ justifySelf: "left" }}>
 					<Abc abcNotation={notation} />
 				</div>
 				<div className="item">
