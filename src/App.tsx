@@ -1,15 +1,19 @@
+import { Duration, SimpleTimeSignature } from "glenn";
 import { useMemo, useState } from "react";
 
 import styles from "./App.module.scss";
 import { Abc } from "./components/abc";
+import { CompoundTimeSignature } from "./components/compoundTimeSigntature";
 import { DurationValue, PitchDurationSelector } from "./components/durations";
 import { OctaveValue, Piano, PitchValue } from "./components/piano";
 import { RestDurationSelector } from "./components/rests";
+import { TimeSignature, TimeSignatureValue } from "./components/simpleTimeSignature";
 import { MusicalNote, Tune } from "./domain/tune";
 
 export function App() {
-	const tune = useMemo<Tune>(() => new Tune(), []);
+	const tune = useMemo<Tune>(() => new Tune(new SimpleTimeSignature(4, Duration.Quarter)), []);
 	const [durationNumber, setDurationNumber] = useState(DurationValue.Quarter);
+	const [timeSignature, setTimeSignature] = useState(TimeSignatureValue.Quadruple);
 	const [notation, setNotation] = useState("");
 	const [status, setStatus] = useState("");
 
@@ -44,6 +48,20 @@ export function App() {
 					<RestDurationSelector
 						restDurationSelectedCallBack={(duration: DurationValue) => {
 							setDurationNumber(duration);
+						}}
+					/>
+				</div>
+				<div className="item">
+					<TimeSignature
+						simpleTimeSignatureSelectedCallBack={(timeSignature: TimeSignatureValue) => {
+							setTimeSignature(timeSignature);
+						}}
+					/>
+				</div>
+				<div className="item">
+					<CompoundTimeSignature
+						CompoundTimeSignatureSelectedCallBack={(timeSignature: TimeSignatureValue) => {
+							setTimeSignature(timeSignature);
 						}}
 					/>
 				</div>

@@ -5,10 +5,11 @@ import { DurationValue } from "../components/durations";
 import { OctaveValue, PitchValue } from "../components/piano";
 
 export class Tune {
-	private readonly timeSignature = new SimpleTimeSignature(4, Duration.Quarter);
 	private readonly key = Key.CMajor;
 	private readonly defaultDuration: Duration = Duration.Quarter;
 	private readonly song = new Song(this.timeSignature, this.key);
+
+	constructor(private readonly timeSignature = new SimpleTimeSignature(4, Duration.Quarter)) {}
 
 	addNote(note: Note): void {
 		this.song.addNote(note);

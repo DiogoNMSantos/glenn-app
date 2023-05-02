@@ -1,0 +1,11 @@
+.container{
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: repeat(5, auto);
+	margin-left: 1.5rem;
+}
+
+.timeSignature {
+	width: 9rem;
+	font-size: 2rem;
+}

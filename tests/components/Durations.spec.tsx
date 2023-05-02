@@ -21,7 +21,7 @@ describe("Duration", () => {
 		expect(durationPressed).toHaveBeenCalledWith(0);
 	});
 
-	test("duration double", () => {
+	test("rest double", () => {
 		const restDurationPressed = jest.fn();
 		render(
 			<RestDurationButton
