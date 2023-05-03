@@ -7,36 +7,36 @@ export enum TimeSignatureValue {
 }
 
 export interface TimeSignatureProps {
-	simpleTimeSignatureSelectedCallBack: (timeSignature: TimeSignatureValue) => void;
+	timeSignatureSelectedCallBack: (timeSignature: TimeSignatureValue) => void;
 }
 
-export function TimeSignature({ simpleTimeSignatureSelectedCallBack }: TimeSignatureProps) {
+export function TimeSignature({ timeSignatureSelectedCallBack }: TimeSignatureProps) {
 	return (
 		<div>
 			<TimeSignatureButton
 				timeSignature={TimeSignatureValue.Quadruple}
 				name={"4/4"}
-				timeSignatureSelectedCallBack={simpleTimeSignatureSelectedCallBack}
+				timeSignatureSelectedCallBack={timeSignatureSelectedCallBack}
 			/>
 			<TimeSignatureButton
 				timeSignature={TimeSignatureValue.Duple}
 				name={"2/2"}
-				timeSignatureSelectedCallBack={simpleTimeSignatureSelectedCallBack}
+				timeSignatureSelectedCallBack={timeSignatureSelectedCallBack}
 			/>
 			<TimeSignatureButton
 				timeSignature={TimeSignatureValue.duple}
 				name={"2/4"}
-				timeSignatureSelectedCallBack={simpleTimeSignatureSelectedCallBack}
+				timeSignatureSelectedCallBack={timeSignatureSelectedCallBack}
 			/>
 			<TimeSignatureButton
 				timeSignature={TimeSignatureValue.Triple}
 				name={"3/4"}
-				timeSignatureSelectedCallBack={simpleTimeSignatureSelectedCallBack}
+				timeSignatureSelectedCallBack={timeSignatureSelectedCallBack}
 			/>
 			<TimeSignatureButton
 				timeSignature={TimeSignatureValue.triple}
 				name={"3/8"}
-				timeSignatureSelectedCallBack={simpleTimeSignatureSelectedCallBack}
+				timeSignatureSelectedCallBack={timeSignatureSelectedCallBack}
 			/>
 		</div>
 	);
