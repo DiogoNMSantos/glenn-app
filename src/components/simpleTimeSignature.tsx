@@ -1,9 +1,12 @@
 export enum TimeSignatureValue {
-	Quadruple,
-	Duple,
-	duple,
-	Triple,
-	triple,
+	FourByFour,
+	TwoByTwo,
+	TwoByFour,
+	ThreeByFour,
+	ThreeByEight,
+	SixByEight,
+	NineByEight,
+	TwelveByEight,
 }
 
 export interface TimeSignatureProps {
@@ -14,27 +17,27 @@ export function TimeSignature({ timeSignatureSelectedCallBack }: TimeSignaturePr
 	return (
 		<div>
 			<TimeSignatureButton
-				timeSignature={TimeSignatureValue.Quadruple}
+				timeSignature={TimeSignatureValue.FourByFour}
 				name={"4/4"}
 				timeSignatureSelectedCallBack={timeSignatureSelectedCallBack}
 			/>
 			<TimeSignatureButton
-				timeSignature={TimeSignatureValue.Duple}
+				timeSignature={TimeSignatureValue.TwoByTwo}
 				name={"2/2"}
 				timeSignatureSelectedCallBack={timeSignatureSelectedCallBack}
 			/>
 			<TimeSignatureButton
-				timeSignature={TimeSignatureValue.duple}
+				timeSignature={TimeSignatureValue.TwoByFour}
 				name={"2/4"}
 				timeSignatureSelectedCallBack={timeSignatureSelectedCallBack}
 			/>
 			<TimeSignatureButton
-				timeSignature={TimeSignatureValue.Triple}
+				timeSignature={TimeSignatureValue.ThreeByFour}
 				name={"3/4"}
 				timeSignatureSelectedCallBack={timeSignatureSelectedCallBack}
 			/>
 			<TimeSignatureButton
-				timeSignature={TimeSignatureValue.triple}
+				timeSignature={TimeSignatureValue.ThreeByEight}
 				name={"3/8"}
 				timeSignatureSelectedCallBack={timeSignatureSelectedCallBack}
 			/>

@@ -14,7 +14,7 @@ import { MusicalNote, Tune } from "./domain/tune";
 export function App() {
 	const tune = useMemo<Tune>(() => new Tune(new SimpleTimeSignature(4, Duration.Quarter)), []);
 	const [durationNumber, setDurationNumber] = useState(DurationValue.Quarter);
-	const [timeSignature, setTimeSignature] = useState(TimeSignatureValue.Quadruple);
+	const [timeSignature, setTimeSignature] = useState(TimeSignatureValue.FourByFour);
 	const [notation, setNotation] = useState("");
 	const [status, setStatus] = useState("");
 

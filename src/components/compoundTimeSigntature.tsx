@@ -1,8 +1,4 @@
-export enum TimeSignatureValue {
-	Duple,
-	Triple,
-	Quadruple,
-}
+import { TimeSignatureValue } from "./simpleTimeSignature";
 
 export interface CompoundTimeSignatureProps {
 	timeSignatureSelectedCallBack: (timeSignature: TimeSignatureValue) => void;
@@ -14,17 +10,17 @@ export function CompoundTimeSignature({
 	return (
 		<div>
 			<CompoundTimeSignatureButton
-				timeSignature={TimeSignatureValue.Duple}
+				timeSignature={TimeSignatureValue.SixByEight}
 				name={"6/8"}
 				compoundTimeSignatureSelectedCallBack={timeSignatureSelectedCallBack}
 			/>
 			<CompoundTimeSignatureButton
-				timeSignature={TimeSignatureValue.Triple}
+				timeSignature={TimeSignatureValue.NineByEight}
 				name={"9/8"}
 				compoundTimeSignatureSelectedCallBack={timeSignatureSelectedCallBack}
 			/>
 			<CompoundTimeSignatureButton
-				timeSignature={TimeSignatureValue.Quadruple}
+				timeSignature={TimeSignatureValue.TwelveByEight}
 				name={"12/8"}
 				compoundTimeSignatureSelectedCallBack={timeSignatureSelectedCallBack}
 			/>
