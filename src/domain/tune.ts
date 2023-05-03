@@ -1,8 +1,19 @@
 /* eslint-disable new-cap */
-import { abcTune, Duration, Key, Note, Octave, Pitch, SimpleTimeSignature, Song } from "glenn";
+import {
+	abcTune,
+	CompoundTimeSignature,
+	Duration,
+	Key,
+	Note,
+	Octave,
+	Pitch,
+	SimpleTimeSignature,
+	Song,
+} from "glenn";
 
 import { DurationValue } from "../components/durations";
 import { OctaveValue, PitchValue } from "../components/piano";
+import { TimeSignatureValue } from "../components/simpleTimeSignature";
 
 export class Tune {
 	private readonly key = Key.CMajor;
@@ -83,5 +94,40 @@ export class MusicalNote {
 		const octave = octaveNumberToOctave.get(octaveNumber);
 
 		return octave ? octave : Octave.C4;
+	}
+}
+
+export class TimeSignatureAddapter {
+	from(timeSignature: TimeSignatureValue): SimpleTimeSignature | CompoundTimeSignature {
+		const simpleTimeSignatureValueToTimeSignature: Map<TimeSignatureValue, SimpleTimeSignature> =
+			new Map<TimeSignatureValue, SimpleTimeSignature>([
+				[TimeSignatureValue.FourByFour, new SimpleTimeSignature(4, Duration.Quarter)],
+				[TimeSignatureValue.TwoByTwo, new SimpleTimeSignature(2, Duration.Half)],
+				[TimeSignatureValue.TwoByFour, new SimpleTimeSignature(2, Duration.Quarter)],
+				[TimeSignatureValue.ThreeByFour, new SimpleTimeSignature(3, Duration.Quarter)],
+				[TimeSignatureValue.ThreeByEight, new SimpleTimeSignature(3, Duration.Eighth)],
+			]);
+
+		const compoundTimeSignatureValueToTimeSignature: Map<
+			TimeSignatureValue,
+			CompoundTimeSignature
+		> = new Map<TimeSignatureValue, CompoundTimeSignature>([
+			[TimeSignatureValue.SixByEight, new CompoundTimeSignature(6, Duration.Eighth)],
+			[TimeSignatureValue.NineByEight, new CompoundTimeSignature(9, Duration.Eighth)],
+			[TimeSignatureValue.TwelveByEight, new CompoundTimeSignature(12, Duration.Eighth)],
+		]);
+
+		const simpleSignature = simpleTimeSignatureValueToTimeSignature.get(timeSignature);
+		const compoundSignature = compoundTimeSignatureValueToTimeSignature.get(timeSignature);
+
+		if (simpleSignature) {
+			return simpleSignature;
+		}
+
+		if (compoundSignature) {
+			return compoundSignature;
+		}
+
+		return new SimpleTimeSignature(4, Duration.Quarter);
 	}
 }
