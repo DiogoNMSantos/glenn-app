@@ -1,6 +1,7 @@
-import { Duration, Note, Octave, Pitch } from "glenn";
+import { CompoundTimeSignature, Duration, Note, Octave, Pitch, SimpleTimeSignature } from "glenn";
 
-import { MusicalNote, Tune } from "../../src/domain/tune";
+import { TimeSignatureValue } from "../../src/components/simpleTimeSignature";
+import { MusicalNote, TimeSignatureAddapter, Tune } from "../../src/domain/tune";
 
 describe("MusicalNote creates note from", () => {
 	test("pitch 0 and octave 4", () => {
@@ -112,4 +113,72 @@ describe("Tune", () => {
 
 		expect(tune.toString()).toContain("|C,G,E,F,|D,|");
 	});
+});
+
+describe("Time signature", () => {
+	test.each([
+		[TimeSignatureValue.FourByFour, 4],
+		[TimeSignatureValue.TwoByFour, 2],
+		[TimeSignatureValue.ThreeByFour, 3],
+	])(
+		"simple with quarter note beat duration",
+		(timeSignature: TimeSignatureValue, beats: number) => {
+			const recieved = new TimeSignatureAddapter().from(timeSignature);
+			const expected = new SimpleTimeSignature(beats, Duration.Quarter);
+
+			expect(recieved).toStrictEqual(expected);
+		}
+	);
+	test.each([[TimeSignatureValue.TwoByTwo, 2]])(
+		"simple with half note beat duration",
+		(timeSignature: TimeSignatureValue, beats: number) => {
+			const recieved = new TimeSignatureAddapter().from(timeSignature);
+			const expected = new SimpleTimeSignature(beats, Duration.Half);
+
+			expect(recieved).toStrictEqual(expected);
+		}
+	);
+
+	test.each([[TimeSignatureValue.ThreeByFour, 3]])(
+		"simple with quarter note beat duration",
+		(timeSignature: TimeSignatureValue, beats: number) => {
+			const recieved = new TimeSignatureAddapter().from(timeSignature);
+			const expected = new SimpleTimeSignature(beats, Duration.Quarter);
+
+			expect(recieved).toStrictEqual(expected);
+		}
+	);
+
+	test.each([[TimeSignatureValue.ThreeByEight, 3]])(
+		"simple with eighth note beat duration",
+		(timeSignature: TimeSignatureValue, beats: number) => {
+			const recieved = new TimeSignatureAddapter().from(timeSignature);
+			const expected = new SimpleTimeSignature(beats, Duration.Eighth);
+
+			expect(recieved).toStrictEqual(expected);
+		}
+	);
+
+	test.each([[TimeSignatureValue.ThreeByFour, 3]])(
+		"simple with quarter note beat duration",
+		(timeSignature: TimeSignatureValue, beats: number) => {
+			const recieved = new TimeSignatureAddapter().from(timeSignature);
+			const expected = new SimpleTimeSignature(beats, Duration.Quarter);
+
+			expect(recieved).toStrictEqual(expected);
+		}
+	);
+	test.each([
+		[TimeSignatureValue.SixByEight, 6],
+		[TimeSignatureValue.NineByEight, 9],
+		[TimeSignatureValue.TwelveByEight, 12],
+	])(
+		"simple with quarter note beat duration",
+		(timeSignature: TimeSignatureValue, beats: number) => {
+			const recieved = new TimeSignatureAddapter().from(timeSignature);
+			const expected = new CompoundTimeSignature(beats, Duration.Eighth);
+
+			expect(recieved).toStrictEqual(expected);
+		}
+	);
 });

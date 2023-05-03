@@ -1,5 +1,5 @@
 import { Duration, SimpleTimeSignature } from "glenn";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 import styles from "./App.module.scss";
 import { Abc } from "./components/abc";
@@ -9,10 +9,12 @@ import { Modal } from "./components/modal";
 import { OctaveValue, Piano, PitchValue } from "./components/piano";
 import { RestDurationSelector } from "./components/rests";
 import { TimeSignature, TimeSignatureValue } from "./components/simpleTimeSignature";
-import { MusicalNote, Tune } from "./domain/tune";
+import { MusicalNote, TimeSignatureAddapter, Tune } from "./domain/tune";
 
 export function App() {
-	const tune = useMemo<Tune>(() => new Tune(new SimpleTimeSignature(4, Duration.Quarter)), []);
+	const [tune, setTune] = useState<Tune>(
+		() => new Tune(new SimpleTimeSignature(4, Duration.Quarter))
+	);
 	const [durationNumber, setDurationNumber] = useState(DurationValue.Quarter);
 	const [notation, setNotation] = useState("");
 	const [status, setStatus] = useState("");
@@ -23,7 +25,7 @@ export function App() {
 			<h1>Gleen App</h1>
 			<Modal
 				modalCallBack={(timeSignature: TimeSignatureValue) => {
-					setTimeSignature(timeSignature);
+					setTune(new Tune(new TimeSignatureAddapter().from(timeSignature)));
 				}}
 			/>
 			<section className={styles.container}>
@@ -59,14 +61,14 @@ export function App() {
 				<div>
 					<TimeSignature
 						timeSignatureSelectedCallBack={(timeSignature: TimeSignatureValue) => {
-							setTimeSignature(timeSignature);
+							setTune(new Tune(new TimeSignatureAddapter().from(timeSignature)));
 						}}
 					/>
 				</div>
 				<div>
 					<CompoundTimeSignature
 						timeSignatureSelectedCallBack={(timeSignature: TimeSignatureValue) => {
-							setTimeSignature(timeSignature);
+							setTune(new Tune(new TimeSignatureAddapter().from(timeSignature)));
 						}}
 					/>
 				</div>
