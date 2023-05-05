@@ -10,11 +10,13 @@ describe("App", () => {
 		const pianoKey = screen.getByText("C4");
 		const durationButton = screen.getByText("𝅜");
 		const timeSignatureButtons = screen.getAllByText("4/4");
+		const submitButton = screen.getByText("Submit");
 		const modal = screen.getByRole("dialog");
 
 		expect(modal).toBeInTheDocument();
 
 		fireEvent.click(timeSignatureButtons[0]);
+		fireEvent.click(submitButton);
 
 		expect(modal).not.toBeInTheDocument();
 

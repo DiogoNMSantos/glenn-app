@@ -24,7 +24,7 @@ export function App() {
 			<div className="app"></div>
 			<h1>Gleen App</h1>
 			<Modal
-				modalCallBack={(timeSignature: TimeSignatureValue) => {
+				modalCallBack={(timeSignature: TimeSignatureValue, title: string, author: string) => {
 					setTune(new Tune(new TimeSignatureAddapter().from(timeSignature)));
 				}}
 			/>

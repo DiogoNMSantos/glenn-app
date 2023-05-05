@@ -46,24 +46,28 @@ describe("Modal", () => {
 		render(<Modal modalCallBack={modalCallBackPressed} />);
 
 		const timeSignature = screen.getAllByRole("button");
+		const submitButton = screen.getByText("Submit");
 
 		fireEvent.click(timeSignature[1]);
+		fireEvent.click(submitButton);
 
-		expect(modalCallBackPressed).toHaveBeenCalledWith(1);
+		expect(modalCallBackPressed).toHaveBeenCalledWith(1, "", "");
 	});
 
-	test("disappears when time signature is selected", () => {
-		const modalCallBackPressed = jest.fn();
-		render(<Modal modalCallBack={modalCallBackPressed} />);
+	test("disappears when form is submited", () => {
+		const modalCallBack = jest.fn();
+		render(<Modal modalCallBack={modalCallBack} />);
 
 		const modal = screen.getByRole("dialog");
 		const timeSignature = screen.getAllByRole("button");
+		const submitButton = screen.getByText("Submit");
 
 		expect(modal).toBeInTheDocument();
 
 		fireEvent.click(timeSignature[1]);
+		fireEvent.click(submitButton);
 
-		expect(modalCallBackPressed).toHaveBeenCalledWith(1);
+		expect(modalCallBack).toHaveBeenCalledWith(1, "", "");
 
 		expect(modal).not.toBeInTheDocument();
 	});

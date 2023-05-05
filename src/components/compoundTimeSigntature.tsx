@@ -44,7 +44,7 @@ export function CompoundTimeSignatureButton({
 	};
 
 	return (
-		<button className="compoundTimeSignature" onClick={handleClick}>
+		<button type="button" className="compoundTimeSignature" onClick={handleClick}>
 			{name}
 		</button>
 	);

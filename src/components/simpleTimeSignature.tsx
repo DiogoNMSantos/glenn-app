@@ -61,7 +61,7 @@ export function TimeSignatureButton({
 	};
 
 	return (
-		<button className="timeSignature" onClick={handleClick}>
+		<button type="button" className="timeSignature" onClick={handleClick}>
 			{name}
 		</button>
 	);
