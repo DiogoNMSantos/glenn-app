@@ -41,17 +41,21 @@ describe("Time signatures", () => {
 });
 
 describe("Modal", () => {
-	test("displays correct time signature on app", () => {
+	test("displays correct time signature, title and author on app", () => {
 		const modalCallBackPressed = jest.fn();
 		render(<Modal modalCallBack={modalCallBackPressed} />);
 
 		const timeSignature = screen.getAllByRole("button");
 		const submitButton = screen.getByText("Submit");
+		const titleInput = screen.getByPlaceholderText("write the title of the song");
+		const authorInput = screen.getByPlaceholderText("write the author's name");
 
 		fireEvent.click(timeSignature[1]);
+		fireEvent.change(titleInput, { target: { value: "Diogo's Song" } });
+		fireEvent.change(authorInput, { target: { value: "Diogo" } });
 		fireEvent.click(submitButton);
 
-		expect(modalCallBackPressed).toHaveBeenCalledWith(1, "", "");
+		expect(modalCallBackPressed).toHaveBeenCalledWith(1, "Diogo's Song", "Diogo");
 	});
 
 	test("disappears when form is submited", () => {
