@@ -29,8 +29,6 @@ export function Modal({ modalCallBack }: ModalProps) {
 	}
 
 	function handleSubmit(event: FormEvent) {
-		// eslint-disable-next-line no-console
-		console.log(formData);
 		event.preventDefault();
 		modalCallBack(formData.timeSignature, formData.title, formData.author);
 		setModal(!modal);
